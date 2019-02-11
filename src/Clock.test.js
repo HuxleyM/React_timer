@@ -5,15 +5,17 @@ configure({ adapter: new Adapter() });
 
 import React from 'react'
 import Clock from './Clock'
-import {shallow} from 'enzyme'
+import {shallow, mount} from 'enzyme'
 
 describe('clock component', ()=>{
 
     it('should render current_time if mode is clock',()=>{
-       const wrap = shallow(< Clock mode={'clock'}/>)
+    const mode = 'clock';
+       const wrap = shallow(<Clock mode={ mode }/>)
+       console.log(wrap)
        expect(
         wrap.containsMatchingElement(
-          <h1>The time is: </h1>
+          <h1>The Time Is:</h1>
         )
       ).toBeTruthy()
     })
