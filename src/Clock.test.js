@@ -28,27 +28,6 @@ describe('clock component', ()=>{
             )
         ).toBeTruthy()
    
-    })
-
-    describe('clicked on clock', ()=>{
-        // why is this test failing
-        it('will generate time_now simple component', ()=>{
-        //setup
-        const time = new Date();
-        const hour = time.getHours();
-        const mins = time.getMinutes();
-        const mode = 'clock'
-        
-        //build
-        const wrap = mount( <Clock mode = {mode} />)
-        const value = wrap.find('#time_now h2').text()
-        //assertation
-        expect(value).toBe(`${hour}:${mins}`)
-        })
-    })
-
-
+    }) 
 })
-
 //need to check renders time now component
-

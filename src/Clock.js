@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import TimeNow from './TimeNow'
 
 class Clock extends Component{
 
@@ -15,17 +16,6 @@ class Clock extends Component{
 
 }
 
-const TimeNow = () => {
-   //logic here
-   const time = new Date();
-   const hour = time.getHours();
-   const mins = time.getMinutes();
-   return (
-       <div id='time_now'>
-          <h2>{hour}:{mins}</h2>
-       </div>
-   )
 
-}
 
 export default Clock
