@@ -33,12 +33,17 @@ describe('clock component', ()=>{
     describe('clicked on clock', ()=>{
         // why is this test failing
         it('will generate time_now simple component', ()=>{
+        //setup
+        const time = new Date();
+        const hour = time.getHours();
+        const mins = time.getMinutes();
         const mode = 'clock'
-        //const time =  new Date().getTime().toString();
+        
+        //build
         const wrap = mount( <Clock mode = {mode} />)
         const value = wrap.find('#time_now h2').text()
-        const time =new Date().getTime().toString() 
-        expect(value).toBe(time)
+        //assertation
+        expect(value).toBe(`${hour}:${mins}`)
         })
     })
 
