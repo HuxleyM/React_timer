@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import TimeNow from './TimeNow'
+import Timer from './Timer'
 
 class Clock extends Component{
 
@@ -10,6 +11,7 @@ class Clock extends Component{
             <div>
                 <h1> {(mode == 'clock')? 'The Time Is:' : 'Set Timer :'} </h1>
                 { mode == 'clock' && < TimeNow />}
+                { mode == 'timer' && < Timer />}
             </div>
         )
     }

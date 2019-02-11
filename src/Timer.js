@@ -12,7 +12,13 @@ class Timer extends Component{
 
    render(){
       return( 
-        <div></div>
+        <div>
+            { !this.state.set && <form>
+                <label>Time work till</label>
+                <input type='time' required></input>
+            </form>
+            }
+        </div>
       )
    }
 }
