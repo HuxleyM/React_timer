@@ -9,9 +9,9 @@ class Clock extends Component{
 
         return (
             <div>
-                <h1> {(mode == 'clock')? 'The Time Is:' : 'Set Timer :'} </h1>
-                { mode == 'clock' && < TimeNow />}
-                { mode == 'timer' && < Timer />}
+                <h1> {(mode === 'clock')? 'The Time Is:' : 'Set Timer :'} </h1>
+                { mode === 'clock' && < TimeNow />}
+                { mode === 'timer' && < Timer />}
             </div>
         )
     }

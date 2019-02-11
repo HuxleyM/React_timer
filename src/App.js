@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 import './App.css';
 import Clock from './Clock';
-import TimeNow from './TimeNow';
 import ClockOptionsList from './Clock_options_list';
 
 class App extends Component {

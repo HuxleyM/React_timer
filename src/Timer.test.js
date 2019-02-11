@@ -10,10 +10,17 @@ import Timer from './Timer'
 import {shallow, mount} from 'enzyme'
 
 describe('timer componet', ()=>{
-   
-    it('should ask for time', ()=>{
 
-        const timer = mount(< Timer />)
-        expect(timer.contains('form')).toEqual(true)
+    const timer = mount(< Timer />)
+   
+    it('should ask for time on start', ()=>{
+        expect(timer.find('form').exists()).toBe(true)
+    })
+
+    it('should change state of timer on submit', ()=>{
+        const form = timer.find('form');
+        form.simulate('keydown', '2','2','2','2')
+        timer.find('#submit_form').simulate('click')
+        expect(timer.state('set')).toEqual(true)
     })
 })
