@@ -4,13 +4,17 @@ import Adapter from 'enzyme-adapter-react-16';
 configure({ adapter: new Adapter() });
 
 import React from 'react'
-import Clock from './Clock'
+// ask about these imports below
+import ClockOptionList from './Clock_options_list'
+import App from './App'
 import {shallow, mount} from 'enzyme'
 
 
 describe('clock option list', ()=>{
-    it('does nothing right now', ()=>{
-        
+    it("clicking 'timer' from the menu should change the Apps state mode to 'timer' ", ()=>{
+        const wrap  = mount( <App />)
+        wrap.find('#timer_mode').simulate('click')
+        expect(wrap.state('mode')).toEqual('timer')
     })
 })
 
