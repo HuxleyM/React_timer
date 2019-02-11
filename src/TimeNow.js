@@ -6,7 +6,6 @@ class TimeNow extends Component {
         this.state = {
             time : this.generateTime()
         }
-    
     }
 
     generateTime(){
@@ -15,6 +14,18 @@ class TimeNow extends Component {
         const mins = time.getMinutes();
         const sec = time.getSeconds();
         return `${hour}:${mins}:${sec}`
+    }
+
+    componentDidMount(){
+        this.timer = setInterval( ()=> this.tick(), 1000 );   
+    }
+
+    componentWillUnmount(){
+       clearInterval(this.timer)
+    }
+
+    tick(){
+        this.setState({ time : this.generateTime() })
     }
 
     render() {

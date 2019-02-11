@@ -17,7 +17,3 @@ describe('clock option list', ()=>{
         expect(wrap.state('mode')).toEqual('timer')
     })
 })
-
-// clicking clock 
-// should change app state mode to clock
-//(also need to check default mode is clock)
