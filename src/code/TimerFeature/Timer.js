@@ -17,14 +17,14 @@ class Timer extends Component{
      event.preventDefault();
      var timeTill = document.getElementById('time_till').value;
      var timer = new TimeFromForm(timeTill)
-     this.timer_set()
+     this.timer_set(true)
      this.set_time_from(timer.from)
      this.set_time_till(timer.till)
    }
 
-   timer_set = () => {
+   timer_set = (bool) => {
     this.setState({
-      set:true
+      set:bool
     })
    }
 
@@ -49,6 +49,7 @@ class Timer extends Component{
               /> :
               < TimerDisplay
                 state={this.state}
+                change={this.timer_set}
               />
             }
         </div>

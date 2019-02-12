@@ -7,13 +7,12 @@ class TimerDisplay extends Component {
     constructor(props){
         super()
         this.state = props.state
-  
+        this.change = props.change
     }
   
     readable_time = () => {
         if(this.state.currentTime){
             let difference = this.state.currentTime
-            console.log(difference)
             let hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             let minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
             let seconds = Math.floor((difference % (1000 * 60)) / 1000);
@@ -28,6 +27,10 @@ class TimerDisplay extends Component {
         let end =  this.state.till;
         let currentTime = end - start;
         this.setState({ currentTime: currentTime })
+        if(this.state.currentTime === 0){
+            this.change(false)
+        }
+
     }
 
     componentDidMount(){
