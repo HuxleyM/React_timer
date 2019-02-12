@@ -5,8 +5,8 @@ class Timer extends Component{
        super()
        this.state = {
            set : false,
-           hour : '',
-           min: '',
+           hour : '00',
+           min: '00',
        }
    }
 
@@ -44,6 +44,9 @@ class Timer extends Component{
                 />
             </form>
             }
+            <div id ='timer'>
+               <h1>{this.state.hour}:{this.state.min}</h1>
+            </div>
 
         </div>
       )
