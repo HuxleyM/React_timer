@@ -10,37 +10,33 @@ class Timer extends Component{
        }
    }
 
-   handleChange = ( event ) => {
-    const {name, value} = event.target;
+   handleForm = ( event ) => {
+     event.preventDefault();
+     var timeTill = document.getElementById('time_till').value;
 
-    this.setState({
-        [name] : value,
-        set : true
-    });
+
    }
-
+   
    setTimer = () =>{
       this.setState({
           set : true,
           hour : '',
           min: '',
       })
-      console.log(this.state)
    }
 
    render(){
       return( 
         <div>
             { !this.state.set && 
-            <form>
+            <form  onSubmit={ this.handleForm } >
                 <label>work until</label>
                 <hr/>
-                <input type='time' name='time_till' onChange = { this.handleChange } required ></input>
+                <input type='time' id ='time_till' name='time_till' required ></input>
                 <input 
                     id ='submit_form'
-                    type="button" 
+                    type="submit" 
                     value="Submit" 
-                    onClick={this.setTimer} 
                 />
             </form>
             }
