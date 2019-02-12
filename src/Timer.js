@@ -5,21 +5,37 @@ class Timer extends Component{
        super()
        this.state = {
            set : false,
-           hour : '00',
-           min: '00',
+           start_time : {
+            hour : '00',
+            min: '00',
+           },
+           end_time : {
+            hour : '00',
+            min: '00',
+           }
        }
    }
 
    handleForm = ( event ) => {
      event.preventDefault();
      var timeTill = document.getElementById('time_till').value;
-
-
+     this.set_start_time();
    }
    
+   set_start_time = () => {
+     var hours = new Date().getHours()
+     var min = new Date().getMinutes()
+     
+     this.setState({
+         set : true,
+         start_time : {
+            hour : hours,
+            min: min,
+         }
+     })
+   }
    setTimer = () =>{
       this.setState({
-          set : true,
           hour : '',
           min: '',
       })
@@ -41,7 +57,7 @@ class Timer extends Component{
             </form>
             }
             <div id ='timer'>
-               <h1>{this.state.hour}:{this.state.min}</h1>
+               <h1>:</h1>
             </div>
 
         </div>

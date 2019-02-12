@@ -21,10 +21,10 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
         < ClockOptionsList
-          ChangeMode = {this.ChangeMode}
+          ChangeMode={this.ChangeMode}
         />
         < Clock
-          mode = {this.state.mode}
+          mode={this.state.mode}
         />
         </header>
       </div>
