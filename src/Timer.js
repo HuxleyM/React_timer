@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import TimerForm from './TimerForm';
 
 class Timer extends Component{
    constructor(){
@@ -16,45 +17,53 @@ class Timer extends Component{
        }
    }
 
+   componentDidUpdate(){
+       const start_time = this.state.start_time;
+       const end_time = this.state.end_time;
+       const difference = `${end_time.hour - start_time.hour}:${this.findMins(start_time, end_time)}`
+      // console.log( difference )
+   }
+
+   findMins = (start_time, end_time) => {
+        //var time  = Math.max(end_time.min,start_time.min) - Math.min(end_time.min,start_time.min)
+        
+   }
+
    handleForm = ( event ) => {
      event.preventDefault();
      var timeTill = document.getElementById('time_till').value;
      this.set_start_time();
+     this.set_end_time(timeTill);
    }
    
    set_start_time = () => {
-     var hours = new Date().getHours()
-     var min = new Date().getMinutes()
-     
      this.setState({
          set : true,
          start_time : {
-            hour : hours,
-            min: min,
+            hour : new Date().getHours(),
+            min: new Date().getMinutes(),
          }
      })
    }
-   setTimer = () =>{
-      this.setState({
-          hour : '',
-          min: '',
-      })
+
+   set_end_time = (value) => {
+    this.setState({
+        end_time : {
+           hour : parseInt(value.split('').splice(0,2).join('')),
+           min: parseInt(value.split('').splice(3,2).join('')),
+        }
+    })
    }
+  
+   
 
    render(){
       return( 
         <div>
             { !this.state.set && 
-            <form  onSubmit={ this.handleForm } >
-                <label>work until</label>
-                <hr/>
-                <input type='time' id ='time_till' name='time_till' required ></input>
-                <input 
-                    id ='submit_form'
-                    type="submit" 
-                    value="Submit" 
-                />
-            </form>
+              < TimerForm 
+                handleForm={this.handleForm}
+              />
             }
             <div id ='timer'>
                <h1>:</h1>
@@ -64,5 +73,8 @@ class Timer extends Component{
       )
    }
 }
+
+
+
 
 export default Timer
