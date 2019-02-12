@@ -14,5 +14,4 @@ const TimerForm = ( {handleForm} ) => {
         </form>
    )
 }
-
 export default TimerForm

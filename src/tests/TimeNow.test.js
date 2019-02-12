@@ -4,7 +4,7 @@ import Adapter from 'enzyme-adapter-react-16';
 configure({ adapter: new Adapter() });
 
 import React from 'react'
-import TimeNow from './TimeNow'
+import TimeNow from '../code/TimeNowFeature/TimeNow'
 import {shallow, mount} from 'enzyme'
 
 describe('clicked on clock', ()=>{

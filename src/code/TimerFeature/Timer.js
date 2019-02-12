@@ -21,7 +21,6 @@ class Timer extends Component{
        const start_time = this.state.start_time;
        const end_time = this.state.end_time;
        const difference = `${end_time.hour - start_time.hour}:${this.findMins(start_time, end_time)}`
-      // console.log( difference )
    }
 
    findMins = (start_time, end_time) => {

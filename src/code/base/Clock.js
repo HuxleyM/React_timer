@@ -1,6 +1,6 @@
 import React from 'react';
-import TimeNow from './TimeNow'
-import Timer from './Timer'
+import TimeNow from '../TimeNowFeature/TimeNow'
+import Timer from '../TimerFeature/Timer'
 
 const Clock = ({ mode }) => (
     <div>

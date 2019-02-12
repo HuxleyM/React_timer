@@ -5,7 +5,7 @@ configure({ adapter: new Adapter() });
 
 import React from 'react'
 // ask about these imports below
-import Timer from './Timer'
+import Timer from '../code/TimerFeature/Timer'
 
 import {shallow, mount} from 'enzyme'
 

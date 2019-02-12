@@ -1,12 +1,10 @@
-// setup file
 import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 configure({ adapter: new Adapter() });
-
 import React from 'react'
 // ask about these imports below
-import ClockOptionList from './Clock_options_list'
-import App from './App'
+import ClockOptionList from '../code/base/Clock_options_list'
+import App from '../App'
 import {shallow, mount} from 'enzyme'
 
 

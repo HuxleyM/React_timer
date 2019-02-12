@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
 import './App.css';
-import Clock from './Clock';
-import ClockOptionsList from './Clock_options_list';
+import Clock from './code/base/Clock';
+import ClockOptionsList from './code/base/Clock_options_list';
 
 class App extends Component {
  
