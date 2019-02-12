@@ -1,73 +1,56 @@
 import React, { Component } from 'react';
 import TimerForm from './TimerForm';
+import TimerDisplay from './TimerDisplay'
+import TimeFromForm from './TimeFromForm'
 
 class Timer extends Component{
    constructor(){
        super()
        this.state = {
            set : false,
-           start_time : {
-            hour : '00',
-            min: '00',
-           },
-           end_time : {
-            hour : '00',
-            min: '00',
-           }
+           from : '',
+           till : ''
        }
-   }
-
-   componentDidUpdate(){
-       const start_time = this.state.start_time;
-       const end_time = this.state.end_time;
-       const difference = `${end_time.hour - start_time.hour}:${this.findMins(start_time, end_time)}`
-   }
-
-   findMins = (start_time, end_time) => {
-        //var time  = Math.max(end_time.min,start_time.min) - Math.min(end_time.min,start_time.min)
-        
    }
 
    handleForm = ( event ) => {
      event.preventDefault();
      var timeTill = document.getElementById('time_till').value;
-     this.set_start_time();
-     this.set_end_time(timeTill);
-   }
-   
-   set_start_time = () => {
-     this.setState({
-         set : true,
-         start_time : {
-            hour : new Date().getHours(),
-            min: new Date().getMinutes(),
-         }
-     })
+     var timer = new TimeFromForm(timeTill)
+     this.timer_set()
+     this.set_time_from(timer.from)
+     this.set_time_till(timer.till)
    }
 
-   set_end_time = (value) => {
+   timer_set = () => {
     this.setState({
-        end_time : {
-           hour : parseInt(value.split('').splice(0,2).join('')),
-           min: parseInt(value.split('').splice(3,2).join('')),
-        }
+      set:true
     })
    }
-  
-   
 
+   set_time_from = (from) => {
+    this.setState({
+      from:from
+    })
+   }
+   set_time_till = (till) => {
+    this.setState({
+      till:till
+    })
+   }
+   
+  
    render(){
       return( 
         <div>
-            { !this.state.set && 
+            { (!this.state.set) ?
               < TimerForm 
                 handleForm={this.handleForm}
+              /> :
+              < TimerDisplay
+                state={this.state}
               />
             }
-            <div id ='timer'>
-               <h1>:</h1>
-            </div>
-
         </div>
       )
    }
