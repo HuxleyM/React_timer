@@ -1,7 +1,4 @@
-// setup file
-import { configure } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
-configure({ adapter: new Adapter() });
+
 
 import React from 'react'
 // ask about these imports below
@@ -18,9 +15,11 @@ describe('timer componet', ()=>{
     })
 
     it('should change state of timer on submit', ()=>{
-        const form = timer.find('form');
-        form.simulate('keydown', '2','2','2','2')
-        timer.find('#submit_form').simulate('click')
-        expect(timer.state('set')).toEqual(true)
+        // const form = timer.find('form');
+        // form.simulate('keydown', '2','2','2','2')
+        // form.simulate('submit')
+  
+        // console.log(timer.state('set'))
+        // expect(timer.state('set')).toEqual(true)
     })
 })
