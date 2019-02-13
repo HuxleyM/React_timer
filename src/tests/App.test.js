@@ -1,6 +1,6 @@
-
+import React from 'react'
 import App from '../App';
-import ReactDom from 'react-dom'
+import ReactDOM from 'react-dom'
 import {shallow, mount} from 'enzyme'
 
 it('renders without crashing', () => {

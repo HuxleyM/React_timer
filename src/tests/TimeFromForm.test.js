@@ -1,6 +1,7 @@
 import React from 'react';
 import Clock from '../code/TimerFeature/TimeFromForm'
 import {shallow, mount} from 'enzyme'
+
 import TimeFromForm from '../code/TimerFeature/TimeFromForm';
 
 
@@ -20,11 +21,15 @@ describe('TimeFromForm', ()=>{
       */
 
     it('returns a utc time from form input', ()=>{
-       const endTimeStub = jest.fn(()=> desiredDate())
-       formattedTime.endTime = endTimeStub
-       console.log(formattedTime.endTime)
-       console.log(formattedTime)
+       const convertToUTCTimeStub = jest.fn(()=> desiredDate())
+       formattedTime.convertToUTCTime = convertToUTCTimeStub
+       console.log(formattedTime.convertToUTCTime());
        expect(formattedTime.timeTill).toBe(desiredDate())
 
+    })
+
+    it('end time returns a utc from a string', ()=>{
+      expect(formattedTime.convertToUTCTime(dummy_time)).toBe(desiredDate())
+      console.log(formattedTime.timeTill)
     })
 })

@@ -29,7 +29,7 @@ describe('clicked on clock', ()=>{
        //const value = wrap.find('#time_now h2').text()
        expect(setInterval).toHaveBeenCalledTimes(1);
        expect(setInterval).toHaveBeenLastCalledWith(expect.any(Function), 1000);
-       //const sec = (new Date().getSeconds() + 1)
-       //expect(value).toBe(`${hour}:${mins}:${sec}`)
+       const sec = (new Date().getSeconds() + 1)
+       expect(value).toBe(`${hour}:${mins}:${sec}`)
     })
 })

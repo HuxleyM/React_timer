@@ -4,6 +4,7 @@ import Clock from '../code/base/Clock'
 import {shallow, mount} from 'enzyme'
 
 
+
 describe('clock component', ()=>{
 
     it('should render current_time if mode is clock',()=>{

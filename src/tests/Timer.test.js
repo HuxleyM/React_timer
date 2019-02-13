@@ -1,9 +1,6 @@
-
-
 import React from 'react'
-// ask about these imports below
+import ReactDOM from 'react-dom'
 import Timer from '../code/TimerFeature/Timer'
-
 import {shallow, mount} from 'enzyme'
 
 describe('timer componet', ()=>{
@@ -15,11 +12,11 @@ describe('timer componet', ()=>{
     })
 
     it('should change state of timer on submit', ()=>{
-        // const form = timer.find('form');
-        // form.simulate('keydown', '2','2','2','2')
-        // form.simulate('submit')
-  
-        // console.log(timer.state('set'))
-        // expect(timer.state('set')).toEqual(true)
+        const form = timer.find('form');
+        form.simulate('keydown', '2','2','2','2')
+        timer.find('submit_form').simulate('click')
+
+   
+        expect(timer.state('set')).toEqual(true)
     })
 })
