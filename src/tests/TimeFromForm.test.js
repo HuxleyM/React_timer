@@ -11,7 +11,15 @@ describe('TimeFromForm', ()=>{
 
     const formattedTime = new TimeFromForm(dummy_time);
 
-    const desiredDate = () => 1550055600449;
+    const desiredDate = () => {
+      let date = new Date();
+      date.setHours(11)
+      date.setMinutes(0)
+      date.setSeconds(0)
+      date.setMilliseconds(0)
+      return date.getTime()
+
+    }
      
 
 
@@ -30,6 +38,6 @@ describe('TimeFromForm', ()=>{
 
     it('end time returns a utc from a string', ()=>{
       expect(formattedTime.convertToUTCTime(dummy_time)).toBe(desiredDate())
-      console.log(formattedTime.timeTill)
+      //console.log(formattedTime.timeTill)
     })
 })

@@ -11,12 +11,20 @@ describe('timer componet', ()=>{
         expect(timer.find('form').exists()).toBe(true)
     })
 
-    it('should change state of timer on submit', ()=>{
-        const form = timer.find('form');
-        form.simulate('keydown', '2','2','2','2')
-        timer.find('submit_form').simulate('click')
 
-   
-        expect(timer.state('set')).toEqual(true)
+    describe('submittinf form changes the timers state', ()=>{
+        
+        beforeEach(()=>{
+            const form = timer.find('form');
+            form.simulate('keydown', '2','2','2','2');
+            timer.find('#submit_form').simulate('click');
+        })
+      
+        it('should change state of timer on submit', async ()=>{
+            expect(timer.state('set')).toEqual(true)
+        })
     })
+ 
+   
 })
+

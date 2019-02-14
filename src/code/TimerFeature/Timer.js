@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import TimerForm from './TimerForm';
 import TimerDisplay from './TimerDisplay'
 import TimeFromForm from './TimeFromForm'
+import Orb from './Orb'
+
 
 class Timer extends Component{
    constructor(){
@@ -18,8 +20,7 @@ class Timer extends Component{
      var timeTill = document.getElementById('time_till').value;
      var timer = new TimeFromForm(timeTill)
      this.timer_set(true)
-     this.set_time_from(timer.from)
-     this.set_time_till(timer.till)
+     this.set_timer_times(timer.from, timer.till)
    }
 
    timer_set = (bool) => {
@@ -28,18 +29,13 @@ class Timer extends Component{
     })
    }
 
-   set_time_from = (from) => {
+   set_timer_times = (from, till) => {
     this.setState({
-      from:from
-    })
-   }
-   set_time_till = (till) => {
-    this.setState({
+      from:from,
       till:till
     })
    }
    
-  
    render(){
       return( 
         <div>
@@ -56,8 +52,5 @@ class Timer extends Component{
       )
    }
 }
-
-
-
 
 export default Timer

@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
-import TimerForm from './TimerForm';
-
+import timerNotification from './Notification'
+import Orb from './Orb'
 
 class TimerDisplay extends Component {
      
     constructor(props){
         super()
-        console.log(props)
         this.state = props.state
         this.change = props.change
+        this.orbSet = false
+ 
     }
   
     readable_time = () => {
@@ -25,18 +26,25 @@ class TimerDisplay extends Component {
     };
 
     check_complete(hours,minutes,seconds){
-     if(hours == 0  && minutes == 0 && seconds == 0){
-         this.change(false)
-     }
+        if(hours === 0  && minutes === 0 && seconds === 0){
+            timerNotification('Time is up!')
+            clearInterval(this.timer)
+            this.change(false)
+        }
     }
 
     tick(){        
-        let start =  new Date().getTime();
-        let end =  this.state.till;
-        let currentTime = end - start;
+        let currentTime = this.state.till -  Date.now();
+        if(!this.orbSet){
+            this.orbSet = new Orb(currentTime)
+        }
+        else{
+            this.orbSet.move(currentTime)
+        }
         this.setState({ currentTime: currentTime })
     }
-
+   
+  
     componentDidMount(){
         this.timer = setInterval( ()=> this.tick(), 1000 );   
     }
@@ -45,11 +53,14 @@ class TimerDisplay extends Component {
        clearInterval(this.timer)
     }
 
+
     render(){
-        return <div>{this.readable_time()}</div>
+        return (<div>
+                <div id='orb'></div>
+                <div>{this.readable_time()}</div>
+            </div>)
     }
 
 }
-
 
 export default TimerDisplay
