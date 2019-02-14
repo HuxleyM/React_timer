@@ -1,7 +1,8 @@
 class TimeFromForm{
   
   constructor(endTime){
-    this.from = Date.now();
+    this.start = new Date();
+    this.from = this.start.getTime();
     this.till = this.convertToUTCTime(endTime)
   }
  
@@ -14,7 +15,7 @@ class TimeFromForm{
   }
 
   convertToUTCTime(formTime){
-    var endTime = new Date();
+    var endTime = this.start
     endTime.setHours(this.get_hours(formTime))
     endTime.setMinutes(this.get_mins(formTime))
     endTime.setSeconds(0)
