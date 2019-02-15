@@ -10,7 +10,6 @@ class Orb extends Component {
 
     move(timeNow){
         let move = (timeNow / this.totalTime) * 100
-        console.log(window.innerHeight)
         document.getElementById('orb').style.top=`${100-move}%`
     }
 }

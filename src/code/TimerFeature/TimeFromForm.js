@@ -19,6 +19,7 @@ class TimeFromForm{
     endTime.setHours(this.get_hours(formTime))
     endTime.setMinutes(this.get_mins(formTime))
     endTime.setSeconds(0)
+    endTime.setMilliseconds(0)
     return endTime.getTime()
   }
 

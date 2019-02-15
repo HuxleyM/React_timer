@@ -25,21 +25,17 @@ describe('TimeFromForm', ()=>{
       date.setMinutes(0)
       date.setSeconds(0)
       date.setMilliseconds(0)
-      return date.getTime()
+      return date
     }
 
   it('returns a utc time from form input', ()=>{
-      const convertToUTCTimeStub = jest.fn(()=> desiredDate())
-      formTime.convertToUTCTime = convertToUTCTimeStub
-      expect(formTime.timeTill).toBe(desiredDate())
+      const dateStub = jest.fn(() => desiredDate());
+      formTime.start = dateStub;
+      expect(formTime.timeTill).toBe(desiredDate().getTime())
   })
 
   it('end time returns a utc from a string', ()=>{
     const timeTill = formTime.timeTill.toString();
     expect(timeTill.match(/\d{13}/g)).not.toBeNull()
-  })
-
-  it('should call convertToUTCTime on construction', ()=>{
-    expect(formTime.till).toEqual(true)
-  })    
+  })  
 })
