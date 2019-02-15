@@ -8,9 +8,7 @@ class TimerDisplay extends Component {
         super()
         this.state = props.state
         this.change = props.change
-        this.complete = false
-        this.orbSet = false
- 
+        this.complete = false 
     }
   
     readable_time = () => {
@@ -29,32 +27,27 @@ class TimerDisplay extends Component {
     check_complete(hours,minutes,seconds){
         if(hours === 0  && minutes === 0 && seconds === 0){
             timerNotification('Time is up!')
-            this.complete = true
-        
+            this.setState({ time : this.generateTime() })
+            this.setState({complete: true})
         }
     }
 
     tick(){        
         let currentTime = this.state.till -  Date.now();
-        // if(!this.orbSet){
-        //     this.orbSet = new Orb(currentTime)
-        // }
-        // else{
-        //     this.orbSet.move(currentTime)
-        // }
         this.setState({ currentTime: currentTime })
     }
    
   
     componentDidMount(){
+        if(this.state.complete){
+            this.change(false)
+           }
+
         this.timer = setInterval( ()=> this.tick(), 1000 );   
     }
 
     componentWillUnmount(){ 
        clearInterval(this.timer)
-       if(this.complete){
-        this.change(false)
-       }
     }
 
 
