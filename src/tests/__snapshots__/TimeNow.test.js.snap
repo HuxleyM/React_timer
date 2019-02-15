@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`clicked on clock display should change per second 1`] = `3`;
+
+exports[`clicked on clock display should change per second 2`] = `3`;
