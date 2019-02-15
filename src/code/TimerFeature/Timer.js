@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import TimerForm from './TimerForm';
 import TimerDisplay from './TimerDisplay'
 import TimeFromForm from './TimeFromForm'
-import Orb from './Orb'
+
 
 
 class Timer extends Component{

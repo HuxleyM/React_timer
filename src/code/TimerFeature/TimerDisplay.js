@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import timerNotification from './Notification'
-import Orb from './Orb'
+
 
 class TimerDisplay extends Component {
      
@@ -8,7 +8,6 @@ class TimerDisplay extends Component {
         super()
         this.state = props.state
         this.change = props.change
-        this.complete = false 
     }
   
     readable_time = () => {
@@ -27,34 +26,38 @@ class TimerDisplay extends Component {
     check_complete(hours,minutes,seconds){
         if(hours === 0  && minutes === 0 && seconds === 0){
             timerNotification('Time is up!')
-            this.setState({ time : this.generateTime() })
-            this.setState({complete: true})
+            this.setState({complete : true})
         }
     }
 
-    tick(){        
+    tick(){ 
+        this.setState({output : this.readable_time()})       
         let currentTime = this.state.till -  Date.now();
         this.setState({ currentTime: currentTime })
+
+        if(this.state.complete){
+            this.change(false)
+       }
+
     }
    
   
     componentDidMount(){
-        if(this.state.complete){
-            this.change(false)
-           }
-
+      
         this.timer = setInterval( ()=> this.tick(), 1000 );   
     }
 
-    componentWillUnmount(){ 
+    componentWillUnmount(){
+   
        clearInterval(this.timer)
+    
     }
 
 
     render(){
         return (<div>
                 <div id='orb'></div>
-                <div>{this.readable_time()}</div>
+                <div>{this.state.output}</div>
             </div>)
     }
 

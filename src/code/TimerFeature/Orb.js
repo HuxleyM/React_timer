@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 class Orb extends Component {
 
     constructor(start){
+        super()
         this.totalTime = start;
         this.totalHeight = window.innerHeight;
     }
