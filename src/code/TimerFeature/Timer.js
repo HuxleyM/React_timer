@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import TimerForm from './TimerForm';
 import TimerDisplay from './TimerDisplay'
 import TimeFromForm from './TimeFromForm'
+import Orb from './Orb'
 
 
 
@@ -43,10 +44,12 @@ class Timer extends Component{
               < TimerForm 
                 handleForm={this.handleForm}
               /> :
+  
               < TimerDisplay
                 state={this.state}
                 change={this.timer_set}
               />
+    
             }
         </div>
       )

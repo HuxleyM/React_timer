@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import timerNotification from './Notification'
+import Orb from './Orb'
+
 
 
 class TimerDisplay extends Component {
@@ -55,10 +57,15 @@ class TimerDisplay extends Component {
 
 
     render(){
-        return (<div>
-                <div id='orb'></div>
+        return(
+             <div>
                 <div>{this.state.output}</div>
-            </div>)
+                < Orb 
+                state={this.state.till}
+                change = {this.state.currentTime}
+                />
+            </div>
+        )
     }
 
 }
