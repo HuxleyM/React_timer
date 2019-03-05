@@ -1,5 +1,7 @@
 ## React Timer 
 
+![React-clock-timer](https://github.com/HuxleyM/React_timer/blob/master/react-clock-timer.png)
+
 # deployed here : https://optimistic-mcclintock-243b10.netlify.com/
 
 # install
