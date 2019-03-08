@@ -11,11 +11,14 @@
   
   To run tests, use npm test.
 
+# Features 
+
+  A live clock and timer functionality with browser notifications.
+  
 # LO 
 
    To learn basics of React.
    To learn basics of testing of React - Enzyme and Jest. 
    Build a tested React clock. 
    Build a tested timers.
-
-# learnings
+   utilize browser notifications.
