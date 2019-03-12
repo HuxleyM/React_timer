@@ -40,8 +40,11 @@ class TimerDisplay extends Component {
         if(this.state.complete){
             this.change(false)
         }
+        else{
+            this._orb.move()
+        }
 
-        this._orb.move()
+      
     }
 
 

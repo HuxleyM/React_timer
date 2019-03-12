@@ -21,9 +21,7 @@ class Orb extends Component {
         let timeNow = Date.now(); 
         let differenceFromStart = timeNow - this.state.startTime   
         let overallDifference = this.difference();  
-
         let move = (differenceFromStart / overallDifference) * 100
-        console.log(move)
         document.getElementById('orb').style.top=`${move}%`
     }
 
