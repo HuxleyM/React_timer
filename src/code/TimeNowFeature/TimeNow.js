@@ -9,11 +9,8 @@ class TimeNow extends Component {
     }
 
     generateTime(){
-        const time = new Date();
-        const hour = time.getHours();
-        const mins = time.getMinutes();
-        const sec = time.getSeconds();
-        return `${hour}:${mins}:${sec}`
+        let time = new Date();
+        return `${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}`
     }
 
     componentDidMount(){
@@ -29,11 +26,7 @@ class TimeNow extends Component {
     }
 
     render() {
-        return (
-            <div id='time_now'>
-            <h2>{this.state.time}</h2>
-            </div>
-        )
+        return <h2>{this.state.time}</h2>
     }
 }
 

@@ -18,15 +18,13 @@ class App extends Component {
   
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
+      <div className="App App-body">
         < ClockOptionsList
           ChangeMode={this.ChangeMode}
         />
         < Clock
           mode={this.state.mode}
         />
-        </header>
       </div>
     );
   }

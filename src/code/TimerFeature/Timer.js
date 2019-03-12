@@ -16,8 +16,8 @@ class Timer extends Component{
 
    handleForm = ( event ) => {
      event.preventDefault();
-     var timeTill = document.getElementById('time_till').value;
-     var timer = new TimeFromForm(timeTill)
+     let timeTill = document.getElementById('time_till').value;
+     let timer = new TimeFromForm(timeTill)
      this.timer_set(true)
      this.set_timer_times(timer.from, timer.till)
    }
@@ -47,7 +47,6 @@ class Timer extends Component{
                 state={this.state}
                 change={this.timer_set}
               />
-    
             }
         </div>
       )

@@ -8,46 +8,51 @@ class TimerDisplay extends Component {
      
     constructor(props){
         super()
+        // should i break up the state here?? its a little tricky to keep track of?
         this.state = props.state
         this.change = props.change
     }
   
     readable_time = () => {
+        /// this feels a little bit much here
         if(this.state.currentTime){
             let difference = this.state.currentTime
             let hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             let minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
             let seconds = Math.floor((difference % (1000 * 60)) / 1000);
-            this.check_complete(hours,minutes,seconds)
+            this.checkTimerComplete(hours,minutes,seconds)
             return `${hours} : ${minutes} : ${seconds}`;
         } else {
             return ` one moment `
         }
     };
 
-    check_complete(hours,minutes,seconds){
+    checkTimerComplete(hours,minutes,seconds){
         if(hours === 0  && minutes === 0 && seconds === 0){
             timerNotification('Time is up!')
-            this.setState({complete : true})
+            this.setState({timerComplete : true})
         }
+    }
+    
+    setCurrentTime(){
+        let currentTime = this.state.till -  Date.now();
+        this.setState({ currentTime: currentTime })
+    }
+
+    updateOutput(){
+        this.setState({output : this.readable_time()}) 
     }
 
     tick(){ 
-        this.setState({output : this.readable_time()})       
-        let currentTime = this.state.till -  Date.now();
-        this.setState({ currentTime: currentTime })
+        this.updateOutput();
+        this.setCurrentTime();
 
-        if(this.state.complete){
-            this.change(false)
+        if(this.state.timerComplete){
+            this.change(false);
+        }else{
+            this._orb.move();
         }
-        else{
-            this._orb.move()
-        }
-
-      
     }
-
-
 
   
     componentDidMount(){
@@ -70,6 +75,7 @@ class TimerDisplay extends Component {
                 < Orb 
                     startTime = {this.state.from}
                     endTime={this.state.till}
+                    // i call the orb move from inside this component it seems a bit much 
                     ref={(orb) => { this._orb = orb}}
                 />
             </div>

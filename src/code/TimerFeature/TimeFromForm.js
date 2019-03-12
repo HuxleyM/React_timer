@@ -1,8 +1,8 @@
 class TimeFromForm{
   
   constructor(endTime){
-    this.start = new Date();
-    this.from = this.start.getTime();
+    //ok so here we are cashing the time now to allow us to build
+    this.from = Date.now();
     this.till = this.convertToUTCTime(endTime)
   }
  
@@ -14,13 +14,13 @@ class TimeFromForm{
     return this.till
   }
 
-  convertToUTCTime(formTime){
-    var endTime = this.start
-    endTime.setHours(this.get_hours(formTime))
-    endTime.setMinutes(this.get_mins(formTime))
-    endTime.setSeconds(0)
-    endTime.setMilliseconds(0)
-    return endTime.getTime()
+  convertToUTCTime(desiredEndTime){
+    var builtEndTime = new Date();
+    builtEndTime.setHours(this.get_hours(desiredEndTime))
+    builtEndTime.setMinutes(this.get_mins(desiredEndTime))
+    builtEndTime.setSeconds(0)
+    builtEndTime.setMilliseconds(0)
+    return builtEndTime.getTime()
   }
 
   get_hours(string){

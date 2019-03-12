@@ -29,6 +29,6 @@ describe('orb component', ()=>{
         expect(updatedTree).toMatchSnapshot();
     })
 
-    // ok so this error is happening because the div doesnt exist at this point in time
+
 })
 

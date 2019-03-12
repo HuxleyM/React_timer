@@ -3,25 +3,16 @@ import React, { Component } from 'react';
 
 class Orb extends Component {
 
-    constructor(props){
-        super()
-        this.state = {
-            startTime : props.startTime,
-            totalTime : props.endTime,
-            totalHeight : window.innerHeight,
-        }
+    overallDifference(){
+        return (this.props.endTime - this.props.startTime);
     }
 
-    difference(){
-        return (this.state.totalTime  - this.state.startTime);
-    
+    differenceFromStart(){
+        return (Date.now() - this.props.startTime); 
     }
 
     move(){
-        let timeNow = Date.now(); 
-        let differenceFromStart = timeNow - this.state.startTime   
-        let overallDifference = this.difference();  
-        let move = (differenceFromStart / overallDifference) * 100
+        let move = (this.differenceFromStart() / this.overallDifference()) * 100
         document.getElementById('orb').style.top=`${move}%`
     }
 
