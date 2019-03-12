@@ -5,15 +5,26 @@ class Orb extends Component {
 
     constructor(props){
         super()
-        console.log(props)
-        this.totalTime = props.state;
-        this.totalHeight = window.innerHeight;
-        // this.move(props.change)
+        this.state = {
+            startTime : props.startTime,
+            totalTime : props.endTime,
+            totalHeight : window.innerHeight,
+        }
     }
 
-    move(timeNow){
-        let move = (timeNow / this.totalTime) * 100
-        document.getElementById('orb').style.top=`${100-move}%`
+    difference(){
+        return (this.state.totalTime  - this.state.startTime);
+    
+    }
+
+    move(){
+        let timeNow = Date.now(); 
+        let differenceFromStart = timeNow - this.state.startTime   
+        let overallDifference = this.difference();  
+
+        let move = (differenceFromStart / overallDifference) * 100
+        console.log(move)
+        document.getElementById('orb').style.top=`${move}%`
     }
 
     render(){
@@ -22,3 +33,4 @@ class Orb extends Component {
 }
 
 export default Orb
+

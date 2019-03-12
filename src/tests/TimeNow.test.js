@@ -20,7 +20,6 @@ describe('clicked on clock', ()=>{
     })
 
     it('should tick', ()=>{
-        // is need a time wizard
        jest.useFakeTimers(); 
        const wrap = mount( <TimeNow/>) 
        expect(setInterval).toHaveBeenCalledTimes(1);

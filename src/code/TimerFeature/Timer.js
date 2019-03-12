@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import TimerForm from './TimerForm';
 import TimerDisplay from './TimerDisplay'
 import TimeFromForm from './TimeFromForm'
-import Orb from './Orb'
-
 
 
 class Timer extends Component{
@@ -44,7 +42,7 @@ class Timer extends Component{
               < TimerForm 
                 handleForm={this.handleForm}
               /> :
-  
+              // is it better to have this including the orb or bring the orb out??
               < TimerDisplay
                 state={this.state}
                 change={this.timer_set}

@@ -39,13 +39,15 @@ class TimerDisplay extends Component {
 
         if(this.state.complete){
             this.change(false)
-       }
+        }
 
+        this._orb.move()
     }
-   
+
+
+
   
     componentDidMount(){
-      
         this.timer = setInterval( ()=> this.tick(), 1000 );   
     }
 
@@ -57,12 +59,15 @@ class TimerDisplay extends Component {
 
 
     render(){
+     
         return(
              <div>
                 <div>{this.state.output}</div>
+               
                 < Orb 
-                state={this.state.till}
-                change = {this.state.currentTime}
+                    startTime = {this.state.from}
+                    endTime={this.state.till}
+                    ref={(orb) => { this._orb = orb}}
                 />
             </div>
         )
