@@ -13,7 +13,7 @@ class TimerDisplay extends Component {
         this.change = props.change
     }
   
-    readable_time = () => {
+    readableTime = () => {
         /// this feels a little bit much here
         if(this.state.currentTime){
             let difference = this.state.currentTime
@@ -35,12 +35,12 @@ class TimerDisplay extends Component {
     }
     
     setCurrentTime(){
-        let currentTime = this.state.till -  Date.now();
+        let currentTime = (this.state.till -  Date.now());
         this.setState({ currentTime: currentTime })
     }
 
     updateOutput(){
-        this.setState({output : this.readable_time()}) 
+        this.setState({output : this.readableTime()}) 
     }
 
     tick(){ 

@@ -18,17 +18,17 @@ class Timer extends Component{
      event.preventDefault();
      let timeTill = document.getElementById('time_till').value;
      let timer = new TimeFromForm(timeTill)
-     this.timer_set(true)
-     this.set_timer_times(timer.from, timer.till)
+     this.timerSet(true)
+     this.setTimerTimes(timer.from, timer.till)
    }
 
-   timer_set = (bool) => {
+   timerSet = (bool) => {
     this.setState({
       set:bool
     })
    }
 
-   set_timer_times = (from, till) => {
+   setTimerTimes = (from, till) => {
     this.setState({
       from:from,
       till:till
@@ -45,7 +45,7 @@ class Timer extends Component{
               // is it better to have this including the orb or bring the orb out??
               < TimerDisplay
                 state={this.state}
-                change={this.timer_set}
+                change={this.timerSet}
               />
             }
         </div>
